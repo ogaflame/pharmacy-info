@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>令和8年調剤報酬改定 変更まとめ（案② 最終）</title>
+<style>
+:root {
+  --border:#bfbfbf;
+  --text:#222;
+  --muted:#666;
+  --bg:#fff;
+  --new:#2f6fed;
+  --new-bg:#e7efff;
+  --chg:#f0b400;
+  --chg-bg:#fff4d6;
+  --badge-bg:#f4f4f4;
+  --badge-border:#d7d7d7;
+}
+body {
+  margin:0; padding:24px;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  background:var(--bg); color:var(--text);
+}
+.container{ max-width: 980px; margin:0 auto; }
+.header{ margin-bottom: 14px; }
+.h1{ font-size: 20px; font-weight: 800; margin:0 0 6px; }
+.sub{ color:var(--muted); font-size: 13px; }
+.controls{ display:flex; gap:10px; flex-wrap:wrap; margin: 14px 0 18px; }
+input[type="search"]{
+  flex: 1 1 260px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+select{
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background:#fff;
+}
+#list{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 16px;
+}
+@media (max-width: 900px){
+  #list{ grid-template-columns: 1fr; }
+}
+.card{
+  border:1px solid var(--border);
+  border-left-width:4px;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+}
+.card.new{ border-left-color: var(--new); }
+.card.change{ border-left-color: var(--chg); }
+.row-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
+.title{ font-size: 16px; font-weight: 800; margin: 0; }
+.id{ font-size: 12px; color: var(--muted); }
+.badges{ margin-top: 8px; display:flex; gap:6px; flex-wrap:wrap; }
+.badge{
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--badge-bg);
+  border: 1px solid var(--badge-border);
+  color: #333;
+}
+.tags{ margin-top: 8px; display:flex; gap:6px; flex-wrap:wrap; }
+.tag{ font-size: 12px; padding: 4px 10px; border-radius: 999px; background:#f2f2f2; }
+.tag.new{ background: var(--new-bg); color:#1e4ed8; }
+.tag.change{ background: var(--chg-bg); color:#8a5a00; }
+.tag.target{ background:#efefef; color:#333; }
+details{ margin-top: 10px; }
+summary{ cursor:pointer; font-weight:700; }
+.detail-text{ margin-top: 8px; line-height: 1.6; }
+.muted{ color: var(--muted); }
+.detail-list{ margin: 8px 0 0; padding-left: 18px; }
+.detail-list li::marker{ color:#999; }
+.detail-sep{ border:0; border-top:1px solid #d9d9d9; margin: 10px 0; }
+.refs{ margin-top: 10px; padding-top: 10px; border-top: 1px dashed #d0d0d0; }
+.refs-title{ font-weight:800; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.refs ul{ margin: 0; padding-left: 18px; }
+.refs a{ color:#0b57d0; text-decoration: none; }
+.refs a:hover{ text-decoration: underline; }
+.small{ font-size: 12px; color: var(--muted); }
+.hidden{ display:none; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="h1">令和8年 調剤報酬改定：変更まとめ</div>
+    <div class="sub">【】で書かれた見出し（例：物価高騰対応）は、詳細を開かなくてもカード上部に表示します。区分・対象タグはシンプルに固定。</div>
+  </div>
+
+  <div class="controls">
+    <input id="q" type="search" placeholder="検索（例：在宅、残薬、無菌、吸入）" />
+    <select id="fKind">
+      <option value="">区分：すべて</option>
+      <option value="new">新設</option>
+      <option value="change">要件変更</option>
+    </select>
+    <select id="fTarget">
+      <option value="">対象：すべて</option>
+      <option value="全体">全体</option>
+      <option value="在宅">在宅</option>
+      <option value="外来">外来</option>
+    </select>
+  </div>
+
+  <div id="list">
+    
+    <div class="card new" data-kind="new" data-target="全体" data-title="調剤物価対応料" data-id="A01">
+      <div class="row-top">
+        <div>
+          <div class="title">調剤物価対応料</div>
+          <div class='badges'><span class='badge'>物価高騰対応</span></div>
+          <div class="tags">
+            <span class="tag new">新設</span>
+            <span class="tag target">全体</span>
+          </div>
+        </div>
+        <div class="id">A01</div>
+      </div>
+
+      <details>
+        <summary>詳細を表示</summary>
+        <div class="detail">
+          <ul class='detail-list'><li>【物価高騰対応】</li><li>処方箋受付時に、3月に1回に限り算定</li><li>令和9年6月以降は点数が引き上げ（2倍になる）予定。</li></ul>
+          <div class="refs" data-id="A01">
+            <div class="refs-title">参照先</div>
+            <ul class="refs-list"><li class="small">（リンク未設定）</li></ul>
+          </div>
+        </div>
+      </details>
+    </div>
+    
+
+    <div class="card new" data-kind="new" data-target="全体" data-title="調剤時残薬調整加算" data-id="A02">
+      <div class="row-top">
+        <div>
+          <div class="title">調剤時残薬調整加算</div>
+          <div class='badges'><span class='badge'>残薬調整の成果評価</span></div>
+          <div class="tags">
+            <span class="tag new">新設</span>
+            <span class="tag target">全体</span>
+          </div>
+        </div>
+        <div class="id">A02</div>
+      </div>
+
+      <details>
+        <summary>詳細を表示</summary>
+        <div class="detail">
+          <ul class='detail-list'><li>【残薬調整の成果評価】</li><li>飲み残し（残薬）が確認された患者に対し、医師の指示の下、実際に7日分以上（理由があれば6日分以下も可）の処方日数を減らした場合に算定。</li><li>＜区分＞</li><li>イ　在宅患者（処方箋交付前に医師と相談・反映）</li><li>ロ　在宅患者（処方箋交付後に調整）</li><li>ハ　かかりつけ薬剤師が対応</li><li>ニ　その他（一般）</li></ul>
+          <div class="refs" data-id="A02">
+            <div class="refs-title">参照先</div>
+            <ul class="refs-list"><li class="small">（リンク未設定）</li></ul>
+          </div>
+        </div>
+      </details>
+    </div>
+    
+
+    <div class="card new" data-kind="new" data-target="全体" data-title="薬学的有害事象等防止加算" data-id="A03">
+      <div class="row-top">
+        <div>
+          <div class="title">薬学的有害事象等防止加算</div>
+          <div class='badges'><span class='badge'>副作用・重複防止の成果評価</span></div>
+          <div class="tags">
+            <span class="tag new">新設</span>
+            <span class="tag target">全体</span>
+          </div>
+        </div>
+        <div class="id">A03</div>
+      </div>
+
+      <details>
+        <summary>詳細を表示</summary>
+        <div class="detail">
+          <ul class='detail-list'><li>【副作用・重複防止の成果評価】</li><li>重複投薬・相互作用等の防止目的で疑義照会を行い、その結果、実際に処方が変更された場合に算定（残薬調整は除く）。</li><li>＜区分＞</li><li>イ　在宅患者（処方箋交付前に医師と相談・反映）</li><li>ロ　在宅患者（処方箋交付後に疑義照会・変更）</li><li>ハ　かかりつけ薬剤師が対応</li><li>ニ　その他（一般）</li></ul>
+          <div class="refs" data-id="A03">
+            <div class="refs-title">参照先</div>
+            <ul class="refs-list"><li class="small">（リンク未設定）</li></ul>
+          </div>
+        </div>
+      </details>
+    </div>
+    
+
+    <div class="card new" data-kind="new" data-target="在宅" data-title="訪問薬剤管理医師同時指導料" data-id="A04">
+      <div class="row-top">
+        <div>
+          <div class="title">訪問薬剤管理医師同時指導料</div>
+          <div class='badges'><span class='badge'>医師との同行訪問</span></div>
+          <div class="tags">
+            <span class="tag new">新設</span>
+            <span class="tag target">在宅</span>
+          </div>
+        </div>
+        <div class="id">A04</div>
+      </div>
+
+      <details>
+        <summary>詳細を表示</summary>
+        <div class="detail">
+          <ul class='detail-list'><li>【医師との同行訪問】</li><li>在宅患者訪問薬剤管理指導料等を算定する在宅患者</li><li>（単一建物診療患者が1人の場合など）</li><li>訪問診療を行う医師と同時に患家を訪問し、薬学的管理および指導を行った場合に、6月に1回に限り算定する。</li></ul>
+          <div class="refs" data-id="A04">
+            <div class="refs-title">参照先</div>
+            <ul class="refs-list"><li class="small">（リンク未設定）</li></ul>
+          </div>
+        </div>
+      </details>
+    </div>
+    
+
+    <div class="card new" data-kind="new" data-target="在宅" data-title="複数名薬剤管理指導訪問料" data-id="A05">
+      <div class="row-top">
+        <div>
+          <div class="title">複数名薬剤管理指導訪問料</div>
+          <div class='badges'><span class='badge'>複数名での訪問</span></div>
+          <div class="tags">
+            <span class="tag new">新設</span>
+            <span class="tag target">在宅</span>
+          </div>
+        </div>
+        <div class="id">A05</div>
+      </div>
+
+      <details>
+        <summary>詳細を表示</summary>
+        <div class="detail">
+          <ul class='detail-list'><li>【複数名での訪問】</li><li>通院困難で、医師が複数名訪問の必要性を認めた患者</li><li>（行動面の運動興奮等がある場合）</li><li>患者の同意を得て、薬局等の職員（薬剤師以外も含む）と複数名で訪問し、指導を行った場合に算定する。</li></ul>
+          <div class="refs" data-id="A05">
+            <div class="refs-title">参照先</div>
+            <ul class="refs-list"><li class="small">（リンク未設定）</li></ul>
+          </div>
+        </div>
+      </details>
+    </div>
+    
+
+    <div class="card new" data-kind="new" data-target="外来" data-title="バイオ後続品調剤体制加算" data-id="A06">
+      <div class="row-top">
+        <div>
+          <div class="title">バイオ後続品調剤体制加算</div>
+          <div class='badges'><span class='badge'>バイオ後続品の使用促進</span></div>
+          <div class="tags">
+            <span class="tag new">新設</span>
+            <span class="tag target">外来</span>
+          </div>
+        </div>
+        <div class="id">A06</div>
+      </div>
+
+      <details>
+        <summary>詳細を表示</summary>
+        <div class="detail">
+          <ul class='detail-list'><li>【バイオ後続品の使用促進】</li><li>バイオ医薬品の適切な保管・説明体制を整備した薬局において、バイオ後続品（インスリン製剤を除く）を調剤した場合に算定する。</li></ul>
+          <div class="refs" data-id="A06">
+            <div class="refs-title">参照先</div>
+            <ul class="refs-list"><li class="small">（リンク未設定）</li></ul>
+          </div>
+        </div>
+      </details>
+    </div>
+    
+
+    <div class="card new" data-kind="new" data-target="全体" data-title="電子的調剤情報連携体制整備加算" data-id="A07">
+      <div class="row-top">
+        <div>
+          <div class="title">電子的調剤情報連携体制整備加算</div>
+          <div class='badges'><span class='badge'>医療DX・電子処方箋対応</span></div>
+          <div class="tags">
+            <span class="tag new">新設</span>
+            <span class="tag target">全体</span>
+          </div>
+        </div>
+        <div class="id">A07</div>
+      </div>
+
+      <details>
+        <summary>詳細を表示</summary>
+        <div class="detail">
+          <ul class='detail-list'><li>【医療DX・電子処方箋対応】</li><li>現行の「医療DX推進体制整備加算」を改組。電子処方箋システムによる重複投薬チェック体制等が要件化される見込み。</li></ul>
+          <div class="refs" data-id="A07">
+            <div class="refs-title">参照先</div>
+            <ul class="refs-list"><li class="small">（リンク未設定）</li></ul>
+          </div>
+        </div>
+      </details>
+    </div>
+    
+
+    <div class="card new" data-kind="new" data-target="全体" data-title="地域支援・医薬品供給対応体制加算" data-id="A08">
+      <div class="row-top">
+        <div>
+          <div class="title">地域支援・医薬品供給対応体制加算</div>
+          <div class='badges'><span class='badge'>供給拠点機能の評価</span></div>
+          <div class="tags">
+            <span class="tag new">新設</span>
+            <span class="tag target">全体</span>
+          </div>
+        </div>
+        <div class="id">A08</div>
+      </div>
+
+      <details>
+        <summary>詳細を表示</summary>
+        <div class="detail">
+          <ul class='detail-list'><li>【供給拠点機能の評価】</li><li>現行の「地域支援体制加算」を改組。特に「加算1」等は医薬品の安定供給（他店への分譲実績、備蓄等）や後発医薬品の使用割合等を要件とする。</li></ul>
+          <div class="refs" data-id="A08">
+            <div class="refs-title">参照先</div>
+            <ul class="refs-list"><li class="small">（リンク未設定）</li></ul>
+          </div>
+        </div>
+      </details>
+    </div>
+    
+
+    <div class="card change" data-kind="change" data-target="全体" data-title="調剤管理料" data-id="A09">
+      <div class="row-top">
+        <div>
+          <div class="title">調剤管理料</div>
+          <div class='badges'><span class='badge'>区分の簡素化（日数倍数制の完全廃止）</span></div>
+          <div class="tags">
+            <span class="tag change">要件変更</span>
+            <span class="tag target">全体</span>
+          </div>
+        </div>
+        <div class="id">A09</div>
+      </div>
+
+      <details>
+        <summary>詳細を表示</summary>
+        <div class="detail">
+          <ul class='detail-list'><li>【区分の簡素化（日数倍数制の完全廃止）】</li><li>区分変更：内服薬の評価区分が、現行の4区分（7日以下～29日以上）から、「長期処方（28日分以上）」と「それ以外（27日分以下）」の2区分に集約される。</li><li>廃止：「調剤管理加算」は廃止される。</li></ul>
+          <div class="refs" data-id="A09">
+            <div class="refs-title">参照先</div>
+            <ul class="refs-list"><li class="small">（リンク未設定）</li></ul>
+          </div>
+        </div>
+      </details>
+    </div>
+    
+
+    <div class="card change" data-kind="change" data-target="全体" data-title="服薬管理指導料" data-id="A10">
+      <div class="row-top">
+        <div>
+          <div class="title">服薬管理指導料</div>
+          <div class='badges'><span class='badge'>かかりつけ機能の統合</span></div>
+          <div class="tags">
+            <span class="tag change">要件変更</span>
+            <span class="tag target">全体</span>
+          </div>
+        </div>
+        <div class="id">A10</div>
+      </div>
+
+      <details>
+        <summary>詳細を表示</summary>
+        <div class="detail">
+          <div class='detail-text'>【かかりつけ機能の統合】● 区分追加：廃止される「かかりつけ薬剤師指導料」が本指導料に統合され、「かかりつけ薬剤師が行った場合」**の区分（点数は未定）が設定される。● オンライン：在宅患者（通院困難者）に対するオンライン服薬指導の要件が見直される。</div><hr class='detail-sep'><ul class='detail-list'><li>１　原則３月以内に再度処方箋を持参した患者に対して行った場合</li><li>イ　かかりつけ薬剤師が行った場合　　●●点</li><li>ロ　イ以外の場合　　　　　　　　　　●●点</li><li>２　1の患者以外の患者に対して行った場合　●●点</li><li>※1のイについてはお薬手帳を提示した患者に対して算定する</li></ul>
+          <div class="refs" data-id="A10">
+            <div class="refs-title">参照先</div>
+            <ul class="refs-list"><li class="small">（リンク未設定）</li></ul>
+          </div>
+        </div>
+      </details>
+    </div>
+    
+
+    <div class="card change" data-kind="change" data-target="外来" data-title="吸入薬指導加算" data-id="A11">
+      <div class="row-top">
+        <div>
+          <div class="title">吸入薬指導加算</div>
+          <div class='badges'><span class='badge'>対象疾患の拡大</span></div>
+          <div class="tags">
+            <span class="tag change">要件変更</span>
+            <span class="tag target">外来</span>
+          </div>
+        </div>
+        <div class="id">A11</div>
+      </div>
+
+      <details>
+        <summary>詳細を表示</summary>
+        <div class="detail">
+          <ul class='detail-list'><li>【対象疾患の拡大】</li><li>対象拡大：従来は喘息・COPD等の慢性疾患に限られていたが、「インフルエンザウイルス感染症」の患者に対する吸入指導も算定対象となる。</li><li>要件：文書及び練習用吸入器を用いた指導、医師への情報提供等は継続。</li></ul>
+          <div class="refs" data-id="A11">
+            <div class="refs-title">参照先</div>
+            <ul class="refs-list"><li class="small">（リンク未設定）</li></ul>
+          </div>
+        </div>
+      </details>
+    </div>
+    
+
+    <div class="card change" data-kind="change" data-target="在宅" data-title="在宅患者訪問薬剤管理指導料" data-id="A12">
+      <div class="row-top">
+        <div>
+          <div class="title">在宅患者訪問薬剤管理指導料</div>
+          <div class='badges'><span class='badge'>訪問間隔ルールの緩和</span></div>
+          <div class="tags">
+            <span class="tag change">要件変更</span>
+            <span class="tag target">在宅</span>
+          </div>
+        </div>
+        <div class="id">A12</div>
+      </div>
+
+      <details>
+        <summary>詳細を表示</summary>
+        <div class="detail">
+          <ul class='detail-list'><li>【訪問間隔ルールの緩和】</li><li>制限撤廃：同一患者に月2回以上算定する場合の「算定する日の間隔は6日以上とする」という規定が廃止され、週1回算定可能となる。</li><li>要件追加：夜間・休日の連絡先（連携薬局含む）を文書で交付することが要件化される。</li></ul>
+          <div class="refs" data-id="A12">
+            <div class="refs-title">参照先</div>
+            <ul class="refs-list"><li class="small">（リンク未設定）</li></ul>
+          </div>
+        </div>
+      </details>
+    </div>
+    
+
+    <div class="card change" data-kind="change" data-target="在宅" data-title="在宅薬学総合体制加算" data-id="A13">
+      <div class="row-top">
+        <div>
+          <div class="title">在宅薬学総合体制加算</div>
+          <div class='badges'><span class='badge'>要件の厳格化・実績重視</span></div>
+          <div class="tags">
+            <span class="tag change">要件変更</span>
+            <span class="tag target">在宅</span>
+          </div>
+        </div>
+        <div class="id">A13</div>
+      </div>
+
+      <details>
+        <summary>詳細を表示</summary>
+        <div class="detail">
+          <ul class='detail-list'><li>【要件の厳格化・実績重視】</li><li>加算2の変更：「無菌製剤処理設備（無菌室等）」の設置義務が廃止される代わりに、麻薬調剤、無菌製剤処理の実績、常勤換算薬剤師数、単一建物診療患者1人の訪問実績などが厳格化・追加される。</li></ul>
+          <div class="refs" data-id="A13">
+            <div class="refs-title">参照先</div>
+            <ul class="refs-list"><li class="small">（リンク未設定）</li></ul>
+          </div>
+        </div>
+      </details>
+    </div>
+    
+
+    <div class="card change" data-kind="change" data-target="全体" data-title="無菌製剤処理加算" data-id="A14">
+      <div class="row-top">
+        <div>
+          <div class="title">無菌製剤処理加算</div>
+          <div class='badges'><span class='badge'>対象年齢の拡大</span></div>
+          <div class="tags">
+            <span class="tag change">要件変更</span>
+            <span class="tag target">全体</span>
+          </div>
+        </div>
+        <div class="id">A14</div>
+      </div>
+
+      <details>
+        <summary>詳細を表示</summary>
+        <div class="detail">
+          <ul class='detail-list'><li>【対象年齢の拡大】</li><li>対象拡大：小児の加算対象年齢が、現行の「6歳未満」から「15歳未満」　に引き上げられる。</li></ul>
+          <div class="refs" data-id="A14">
+            <div class="refs-title">参照先</div>
+            <ul class="refs-list"><li class="small">（リンク未設定）</li></ul>
+          </div>
+        </div>
+      </details>
+    </div>
+    
+
+    <div class="card change" data-kind="change" data-target="全体" data-title="特定薬剤管理指導加算３" data-id="A15">
+      <div class="row-top">
+        <div>
+          <div class="title">特定薬剤管理指導加算３</div>
+          <div class='badges'><span class='badge'>対象の拡大（バイオシミラー）</span></div>
+          <div class="tags">
+            <span class="tag change">要件変更</span>
+            <span class="tag target">全体</span>
+          </div>
+        </div>
+        <div class="id">A15</div>
+      </div>
+
+      <details>
+        <summary>詳細を表示</summary>
+        <div class="detail">
+          <ul class='detail-list'><li>【対象の拡大（バイオシミラー）】</li><li>対象拡大：選定療養対象薬の説明に加え、一般名処方等に基づき「バイオ後続品（バイオシミラー）」を選択しようとする患者への説明・指導を行った場合が追加される。</li></ul>
+          <div class="refs" data-id="A15">
+            <div class="refs-title">参照先</div>
+            <ul class="refs-list"><li class="small">（リンク未設定）</li></ul>
+          </div>
+        </div>
+      </details>
+    </div>
+    
+
+    <div class="card change" data-kind="change" data-target="全体" data-title="服用薬剤調整支援料２" data-id="A16">
+      <div class="row-top">
+        <div>
+          <div class="title">服用薬剤調整支援料２</div>
+          <div class='badges'><span class='badge'>かかりつけ機能への限定</span></div>
+          <div class="tags">
+            <span class="tag change">要件変更</span>
+            <span class="tag target">全体</span>
+          </div>
+        </div>
+        <div class="id">A16</div>
+      </div>
+
+      <details>
+        <summary>詳細を表示</summary>
+        <div class="detail">
+          <ul class='detail-list'><li>【かかりつけ機能への限定】</li><li>要件変更：重複投薬等の解消提案について、「かかりつけ薬剤師」**が実施した場合に限定される見込み。</li></ul>
+          <div class="refs" data-id="A16">
+            <div class="refs-title">参照先</div>
+            <ul class="refs-list"><li class="small">（リンク未設定）</li></ul>
+          </div>
+        </div>
+      </details>
+    </div>
+    
+  </div>
+
+<script>
+const linksById = {
+  // "A01": [{ label: "中医協資料（PDF）", url: "https://example.com/doc.pdf#page=12" }],
+};
+
+function renderRefs() {
+  document.querySelectorAll(".refs[data-id]").forEach(el => {
+    const id = el.dataset.id;
+    const links = linksById[id] || [];
+    const ul = el.querySelector(".refs-list");
+    if (!links.length) return;
+    ul.innerHTML = links.map(l => `<li><a href="${l.url}" target="_blank" rel="noopener">${l.label}</a></li>`).join("");
+  });
+}
+
+function applyFilters(){
+  const q = (document.getElementById("q").value || "").toLowerCase();
+  const fk = document.getElementById("fKind").value;
+  const ft = document.getElementById("fTarget").value;
+  document.querySelectorAll("#list .card").forEach(card => {
+    const kind = card.dataset.kind;
+    const target = card.dataset.target;
+    const title = card.dataset.title;
+    const hay = (title + " " + target + " " + kind).toLowerCase();
+    const okQ = !q || hay.includes(q);
+    const okK = !fk || kind === fk;
+    const okT = !ft || target === ft;
+    card.classList.toggle("hidden", !(okQ && okK && okT));
+  });
+}
+
+document.getElementById("q").addEventListener("input", applyFilters);
+document.getElementById("fKind").addEventListener("change", applyFilters);
+document.getElementById("fTarget").addEventListener("change", applyFilters);
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderRefs();
+  applyFilters();
+});
+</script>
+</div>
+</body>
+</html>
