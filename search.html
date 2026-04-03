@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>疑義解釈検索</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    input { width: 100%; padding: 10px; font-size: 16px; }
+    .container { display: flex; margin-top: 20px; }
+    .list { width: 40%; border-right: 1px solid #ccc; padding-right: 10px; }
+    .detail { width: 60%; padding-left: 10px; }
+    .item { cursor: pointer; margin-bottom: 10px; }
+    .item:hover { background: #f0f0f0; }
+  </style>
+</head>
+<body>
+
+<h2>疑義解釈検索</h2>
+
+<input type="text" id="searchBox" placeholder="キーワードで検索">
+
+<div class="container">
+  <div class="list" id="list"></div>
+  <div class="detail" id="detail">ここに内容が表示されます</div>
+</div>
+
+<script>
+let data = [];
+
+fetch('data/questions.json')
+  .then(res => res.json())
+  .then(json => {
+    data = json;
+  });
+
+const box = document.getElementById("searchBox");
+const list = document.getElementById("list");
+const detail = document.getElementById("detail");
+
+box.addEventListener("input", () => {
+  const q = box.value;
+  list.innerHTML = "";
+
+  const results = data.filter(item =>
+    item.question.includes(q) ||
+    item.section.includes(q) ||
+    item.answer.includes(q)
+  );
+
+  results.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "item";
+    div.textContent = item.question + " " + item.section;
+
+    div.onclick = () => {
+      detail.innerHTML = `
+        <h3>${item.question} ${item.section}</h3>
+        <p>${item.answer}</p>
+        <p><a href="${item.pdf}" target="_blank">原本PDFを見る</a></p>
+      `;
+    };
+
+    list.appendChild(div);
+  });
+});
+</script>
+
+</body>
+</html>
