@@ -1,12 +1,5 @@
 [
   {
-    "question": "問テスト",
-    "section": "テスト加算",
-    "answer": "これはテスト用のデータです",
-    "pdf": "pdfs/test.pdf",
-    "page": 1
-  },
-  {
     "question": "問1 在宅移行初期管理料",
     "section": "在宅",
     "answer": "ここに疑義解釈の内容を入れる",
