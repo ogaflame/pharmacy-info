@@ -56,7 +56,7 @@ box.addEventListener("input", () => {
       detail.innerHTML = `
         <h3>${item.question} ${item.section}</h3>
         <p>${item.answer}</p>
-        <p><a href="${item.pdf}" target="_blank">原本PDFを見る</a></p>
+        <p><a href="${item.pdf}#page=${item.page}" target="_blank">原本PDFを見る</a></p>
       `;
     };
 
